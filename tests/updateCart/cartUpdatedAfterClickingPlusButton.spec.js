@@ -1,5 +1,5 @@
 import { test } from '../fixtures/fixtures';
-import { priceFormatStr } from '../../src/common/helpers/getPriceForQuantity';
+import { totalPriceFormatStr } from '../../src/common/helpers/getPriceForQuantity';
 import { COFFEE_PRICES } from '../../src/constants';
 
 test('Assert cart updated correctly after clicking plus for drinks', async ({
@@ -12,11 +12,11 @@ test('Assert cart updated correctly after clicking plus for drinks', async ({
 
   await menuPage.clickCartLink();
   await cartPage.waitForLoading();
-  const espressoPrice = priceFormatStr(COFFEE_PRICES.espresso);
-  const cappuccinoPrice = priceFormatStr(COFFEE_PRICES.cappuccino);
-  const twoEspresso = priceFormatStr(COFFEE_PRICES.espresso * 2);
-  const twoCappuccino = priceFormatStr(COFFEE_PRICES.cappuccino * 2);
-  const total = priceFormatStr(
+  const espressoPrice = totalPriceFormatStr(COFFEE_PRICES.espresso);
+  const cappuccinoPrice = totalPriceFormatStr(COFFEE_PRICES.cappuccino);
+  const twoEspresso = totalPriceFormatStr(COFFEE_PRICES.espresso * 2);
+  const twoCappuccino = totalPriceFormatStr(COFFEE_PRICES.cappuccino * 2);
+  const total = totalPriceFormatStr(
     COFFEE_PRICES.espresso * 2 + COFFEE_PRICES.cappuccino * 2,
   );
 

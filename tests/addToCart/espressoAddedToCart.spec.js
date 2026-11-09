@@ -2,7 +2,7 @@ import { test } from '../fixtures/fixtures';
 import { COFFEE_PRICES } from '../../src/constants';
 import {
   unitPriceFormatStr,
-  priceFormatStr,
+  totalPriceFormatStr,
 } from '../../src/common/helpers/getPriceForQuantity';
 
 test('Check Espresso correctly added to the Cart', async ({
@@ -15,7 +15,7 @@ test('Check Espresso correctly added to the Cart', async ({
   await menuPage.clickCartLink();
   await cartPage.waitForLoading();
 
-  const price = priceFormatStr(COFFEE_PRICES.espresso);
+  const price = totalPriceFormatStr(COFFEE_PRICES.espresso);
   const priceWithCount = unitPriceFormatStr(COFFEE_PRICES.espresso, 1);
 
   await cartPage.assertEspressoNameIsContainsCorrectText();
